@@ -1,0 +1,42 @@
+CREATE TABLE Clientes
+(
+    cli_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    cli_razao_social VARCHAR(150),
+    cli_nome_fantasia VARCHAR(150),
+    cli_data_abertura DATE,
+    cli_cnpj_cpf VARCHAR(18),
+    cli_jucesp VARCHAR(20),
+    cli_nire VARCHAR(20),
+    cli_tipo CHAR(1),
+    cli_credito DECIMAL(10,2),
+    cli_cep VARCHAR(9),
+    cli_endereco VARCHAR(150),
+    cli_bairro VARCHAR(50),
+    cli_cidade VARCHAR(50),
+    cli_estado VARCHAR(2),
+    cli_telefone_1 VARCHAR(14),
+    cli_telefone_2 VARCHAR(14),
+    cli_responsavel VARCHAR(50),
+    cli_entrega_cep VARCHAR(9),
+    cli_entrega_endereco VARCHAR(150),
+    cli_entrega_bairro VARCHAR(50),
+    cli_entrega_cidade VARCHAR(50),
+    cli_entrega_estado VARCHAR(2),
+    cli_entrega_telefone VARCHAR(14),
+    cli_entrega_responsavel VARCHAR(50),
+    cli_cobranca_cep VARCHAR(9),
+    cli_cobranca_endereco VARCHAR(150),
+    cli_cobranca_bairro VARCHAR(50),
+    cli_cobranca_cidade VARCHAR(50),
+    cli_cobranca_estado VARCHAR(2),
+    cli_cobranca_telefone VARCHAR(14),
+    cli_cobranca_responsavel VARCHAR(50),
+    cli_gerente VARCHAR(50),
+    cli_aprovacao VARCHAR(10),
+    cli_prazo VARCHAR(50),
+    ven_id INT,
+    usr_id INT
+);
+
+ALTER TABLE Clientes ADD CONSTRAINT FK_Clientes_1 FOREIGN KEY (ven_id) REFERENCES Vendedores(ven_id);
+ALTER TABLE Clientes ADD CONSTRAINT FK_Clientes_2 FOREIGN KEY (usr_id) REFERENCES Usuarios(usr_id);
